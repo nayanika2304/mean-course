@@ -4,7 +4,7 @@ import {Component} from "@angular/core";
 @Component({
   selector : 'app-header',//allows us to use the component
   templateUrl : './header.component.html', // to look for html to render
-  //styleUrls : ['./post-create-component.css']
+  styleUrls : ['./header.component.css']
 })
 export class HeaderComponent{
 
