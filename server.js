@@ -22,7 +22,7 @@ const onError = error => {
   if (error.syscall !== "listen") {
     throw error;
   }
-  const bind = typeof port === "string" ? "pipe " + port : "port " + port;
+  const bind = typeof addr === "string" ? "pipe " + addr : "port " + port;
   switch (error.code) {
     case "EACCES":
       console.error(bind + " requires elevated privileges");
@@ -39,11 +39,11 @@ const onError = error => {
 
 const onListening = () => {
   const addr = server.address();
-  const bind = typeof port === "string" ? "pipe " + port : "port " + port;
+  const bind = typeof addr === "string" ? "pipe " + addr : "port " + port;
   debug("Listening on " + bind);
 };
 
-const port = normalizePort(process.env.PORT || "3000");
+const port = normalizePort(process.env.PORT || "3001");
 app.set("port", port);
 
 const server = http.createServer(app);

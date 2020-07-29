@@ -15,9 +15,10 @@ import {ParamMap} from "@angular/router";
 export class PostCreateComponent implements OnInit{
   enteredContent = '';
   enteredTitle = '';
+  post :Post
   private mode = 'create'
   private postId : string
-  private post :Post
+
 
   constructor(public postService : PostService, public route : ActivatedRoute) {
 
@@ -36,11 +37,16 @@ export class PostCreateComponent implements OnInit{
     });
   }
 
-  onAddPost(form: NgForm){
+  onSavePost(form: NgForm){
     if(form.invalid){
       return;
     }
+    if(this.mode === 'create'){
       this.postService.addPost(form.value.title,form.value.content)
+    }else{
+      this.postService.updatePost(this.postId,form.value.title,form.value.content)
+    }
+
       form.resetForm()
     }
 
