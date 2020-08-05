@@ -71,7 +71,7 @@ export class PostCreateComponent implements OnInit {
     }
     if (this.mode === 'create') {
       // @ts-ignore
-      this.postsService.addPost(this.form.value.title, this.form.value.content)
+      this.postsService.addPost(this.form.value.title, this.form.value.content,this.form.value.image)
     } else {
       // @ts-ignore
       this.postsService.updatePost(this.postId, this.form.value.title, this.form.value.content)
