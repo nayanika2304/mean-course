@@ -41,3 +41,4 @@ Thumbs.db
 
 backend/images
 backend/app.js
+nodemon.json
