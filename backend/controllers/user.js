@@ -1,4 +1,4 @@
-const bcrypt = require("bcrypt");
+const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
 const User = require("../models/user");
@@ -19,7 +19,7 @@ exports.createUser = (req, res, next) => {
       })
       .catch(err => {
         res.status(500).json({
-          message: 'Invalid Authentication Credentials'
+          message: "Invalid authentication credentials!"
         });
       });
   });
@@ -56,7 +56,7 @@ exports.userLogin = (req, res, next) => {
     })
     .catch(err => {
       return res.status(401).json({
-        message: "Invalid Authentication Credentials"
+        message: "Invalid authentication credentials!"
       });
     });
 }
